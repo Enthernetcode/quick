@@ -1,0 +1,25 @@
+#!/bin/bash
+printf "Enter name of file to edit: "
+read file
+printf "Enter word you wish to replace: "
+read word
+printf "Enter what you want to replace with: "
+read word2
+
+replacer() {
+# Read the file content
+file_content=$(<$file)
+
+# Replace the word
+new_content="${file_content//$word/$word2}"
+
+# Overwrite the file with the updated content
+echo "$new_content" > $file
+
+echo "Word replaced successfully."
+}
+
+replacer
+cd
+cd .quick
+bash yea.sh
